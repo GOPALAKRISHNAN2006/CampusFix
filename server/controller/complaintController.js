@@ -92,3 +92,59 @@ export const getComplaintById = async(req,res)=>{
         })
     }
 }
+
+
+export const closeCompliant = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const complaint = await Complaint.findById(id);
+
+        if (!complaint) {
+            return res.status(404).json({
+                success: false,
+                message: "Complaint not found"
+            });
+        }
+
+        if (complaint.student.toString() !== req.user._id.toString()
+        ) {
+            return res.status(403).json({
+                success: false,
+                message: "You do not have permission to close this comlpaint"
+            });
+        }
+
+
+        if (complaint.status !== "resolved") {
+            return res.status(400).json({
+                success: false,
+                message: "Complaint is not in resloved status"
+            });
+        }
+
+        complaint.status = "closed";
+
+        await complaint.save();
+
+        return res.status(200).json({
+            success: true,
+            message: "Complaint closed successfully",
+            complaint: {
+                id: complaint._id,
+                title: complaint.title,
+                status: complaint.status,
+                resolution: complaint.resolution
+            }
+        });
+
+    } catch (error) {
+        console.error("Close Compaint error:", error);
+
+        return res.status(500).json({
+            success: false,
+            message: "Server error while closing complaint"
+        });
+    }
+
+};

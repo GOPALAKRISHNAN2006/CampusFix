@@ -47,6 +47,11 @@ const complaintSchema = new mongoose.Schema(
         image: {
             type: String,
             default: null
+        },
+        resolution: {
+           type: String,
+           default: null,
+           trim: true 
         }
     },{
         timestamps: true

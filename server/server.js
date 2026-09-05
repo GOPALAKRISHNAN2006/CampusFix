@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
 import complaintRoutes from "./routes/complaintRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
+import staffRoutes from "./routes/staffRoutes.js"
 dotenv.config();
 
 const app = express();
@@ -22,6 +23,7 @@ app.get("/",(req,res)=>{
 app.use("/api/auth",authRoutes);
 app.use("/api/complaints",complaintRoutes);
 app.use("/api/admin",adminRoutes);
+app.use("/api/staff",staffRoutes);
 
 
 const PORT = process.env.PORT || 5000;
