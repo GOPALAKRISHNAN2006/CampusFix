@@ -9,7 +9,7 @@ export const registerUser = async(req,res) =>{
 
         if(!name || !email || !password){
             return res.status(400).json({
-                sucess: false,
+                success: false,
                 message: "Name,email and password are required" 
             });
         }
@@ -17,7 +17,7 @@ export const registerUser = async(req,res) =>{
         const existinguser = await User.findOne({ email })
         if(existinguser){
             return res.status(409).json({
-                sucess: false,
+                success: false,
                 message : "Email already Exist,Use different email"
             });
         }

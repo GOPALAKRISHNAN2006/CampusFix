@@ -68,7 +68,7 @@ export const getComplaintById = async(req,res)=>{
         const complaint = await Complaint.findById(id);
         if(!complaint){
             return res.status(400).json({
-                success:true,
+                success:false,
                 message: "Complaints not found..."
             });
         }
@@ -94,7 +94,7 @@ export const getComplaintById = async(req,res)=>{
 }
 
 
-export const closeCompliant = async (req, res) => {
+export const closeComplaint = async (req, res) => {
     try {
         const { id } = req.params;
 

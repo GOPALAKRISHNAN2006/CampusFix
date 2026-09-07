@@ -10,21 +10,21 @@ const createAdmin = async() =>{
         await connectDB();
 
         const existingAdmin = await User.findOne({
-            email: env.process.ADMIN_EMAIL
+            email: process.env.ADMIN_EMAIL
         });
         if(existingAdmin){
             console.log("Admin already exists");
             process.exit(0);
         }
 
-        const hashedPassword = await bcrypt.hash(env.process.ADMIN_PASSWORD, 10);
+        const hashedPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD, 10);
 
         await User.create({
             name: "CampusFix Admin",
-            email:env.process.ADMIN_EMAIL,
+            email:process.env.ADMIN_EMAIL,
             password: hashedPassword,
             role:"admin",
-            phone:env.process.ADMIN_PHONENUMBER
+            phone:process.env.ADMIN_PHONE
         });
         console.log("Admin created successfully");
         process.exit(0);
