@@ -85,7 +85,7 @@ export const startWork = async (req, res) => {
     }
 };
 
-export const resloveCompliant = async (req, res) => {
+export const resloveComplaint = async (req, res) => {
     try {
         const { complaintId } = req.params;
 
@@ -198,7 +198,7 @@ export const addResolution = async (req,res)=>{
         });
     }catch(error){
         console.log("Adding resolution error",error);
-        return res.staus(500).json({
+        return res.status(500).json({
             success: false,
             message: "Error while Adding Resolution"
         })

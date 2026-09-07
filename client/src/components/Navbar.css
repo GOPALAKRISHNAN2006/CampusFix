@@ -15,7 +15,7 @@
 
 .navbar-links{
     display: flex;
-    gap: 40px;
+    gap: 50px;
 }
 
 .navbar-links a{
@@ -27,3 +27,5 @@
 .navbar-links a:hover{
     color: #2563eb;
 }
+
+

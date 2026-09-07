@@ -16,7 +16,7 @@ connectDB();
 
 app.get("/",(req,res)=>{
     res.json({
-        messgage: "CampusFix API is Running"
+        message: "CampusFix API is Running"
     });
 });
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import api from "../../src/services/api.js";
+import api from "../../services/api.js";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 function Login(){
@@ -25,7 +25,7 @@ function Login(){
         const {token,user} = response.data;
         localStorage.setItem("token" ,token);
         localStorage.setItem("user", JSON.stringify(user));
-        navigate("/");
+        window.location.href = "/student/dashboard";
       }
       catch(error){
         console.log(error);
@@ -49,9 +49,9 @@ function Login(){
                     </div>
                     <div className="form-group">
                         <label>Password</label>
-                        <input type="text" placeholder="Enter Password" value={password} onChange={(e)=> setPassword(e.target.value)} required/>
+                        <input type="password" placeholder="Enter Password" value={password} onChange={(e)=> setPassword(e.target.value)} required/>
                     </div>
-                    <button type="submit" disabled={loading}>{loading?"Logging In":"Login"}</button>
+                    <button type="submit" disabled={loading}>{loading?"Logging In...":"Login"}</button>
                 </form>
             </div>
         </div>
