@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useAuth } from  "../../context/AuthContext"
 import "./StudentDashboard.css";
 import { useState,useEffect } from "react";
-import api from "../../services/api";
+import { getMyComplaint } from "../../services/complaintServices";
 
 function StudentDashboard() {
     const [complaints,setComplaints] = useState([]);
@@ -12,23 +12,15 @@ function StudentDashboard() {
 
     useEffect(()=>{
         const getComplaints = async()=>{
-            const token = localStorage.getItem("token");
-            if(!token){
-                setLoading(false);
-                return;
-            }
+            
             try{
-                const response = await api.get("/complaints/my",{
-                    headers:{
-                        Authorization: `Bearer ${token}`
-                    }
-                });
-                console.log(response.data);
-                setComplaints(response.data.complaint);
+                const data = await getMyComplaint();
+                console.log(data);
+                setComplaints(data.complaint||[]);
 
             }catch(error){
                 console.log(error);
-                setError(error.response?.data?.message || "Failed to Load Compalaints");
+                setError(error.response?.data?.message || "Failed to Load Complaints");
             }finally{
                 setLoading(false);
             }
@@ -44,6 +36,9 @@ function StudentDashboard() {
 
     const recentComplaints = complaints.slice(0,3);
 
+    if(loading){
+        return <h2 className="loading">Loading...</h2>
+    }
     return(
         <div className="student-dashboard">
             <div className="dashboard-header">
@@ -52,7 +47,7 @@ function StudentDashboard() {
                     <p>Welcome back, {user?.name || "student"}</p>
                     {error && (<p className="error-message">{error}</p>)}
                 </div>
-                <Link to="/student/complaints/create" className="complaint-button">Submit Complaint</Link>
+                <Link to="student/complaints/create" className="complaint-button">Submit Complaint</Link>
             </div>
 
             <div className="summary-section">

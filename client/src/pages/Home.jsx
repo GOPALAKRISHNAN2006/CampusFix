@@ -1,11 +1,12 @@
 import "./Home.css"
+import { Link } from "react-router-dom";
 function Home(){
     return(
         <main className="home">
         <section className="hero-section">
             <h1>Fix Problem. Improve Campus</h1>
             <p> Report college issues easily and trackthem until they are resolved.</p>
-            <button className="hero-button">Submit a Complaint</button>
+            <Link to="student/complaints/create" className="hero-button">Submit a Complaint</Link>
         </section>
         <section className="how-its-works">
             <h2>How it Works</h2>
