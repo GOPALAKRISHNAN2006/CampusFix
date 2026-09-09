@@ -13,15 +13,13 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminComplaints from "./pages/admin/AdminComplaints";
 import AdminComplaintsDetails from "./pages/admin/AdminComplaintsDetails";
 import CreateStaff from "./pages/admin/CreateStaff";
+import StaffDashboard from "./pages/staff/StaffDashboard";
 function App() {
     return (
         <BrowserRouter>
         <Navbar/>
             <Routes>
-                <Route
-                    path="/"
-                    element={<Home/>}
-                />
+                <Route path="/" element={<Home/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/register" element={<Register/>}/>
                 <Route path="/student/dashboard" element={
@@ -77,6 +75,13 @@ function App() {
                     <ProtectedRoutes>
                         <RoleRoute allowedRole="admin">
                             <CreateStaff/>
+                        </RoleRoute>
+                    </ProtectedRoutes>
+                }/>
+                <Route path="/staff/dashboard" element={
+                    <ProtectedRoutes>
+                        <RoleRoute allowedRole="staff">
+                            <StaffDashboard/>
                         </RoleRoute>
                     </ProtectedRoutes>
                 }/>

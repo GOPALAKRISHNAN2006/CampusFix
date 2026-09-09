@@ -19,7 +19,7 @@ function Navbar(){
                 <Link to="/">Home</Link>
                 {user ? (
                     <>
-                    <Link to="/student/dashboard">Dashboard</Link>
+                    <Link to={`/${user.role}/dashboard`}>Dashboard</Link>
                     <button onClick={handleLogout} className="logout">Logout</button>
                     </>
                 ):(

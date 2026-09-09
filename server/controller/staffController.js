@@ -1,6 +1,6 @@
 import Complaint from "../models/Complaint.js";
 
-export const getAssignedCompaints = async(req,res)=>{
+export const getAssignedComplaints = async(req,res)=>{
     try{
         const complaints = await Complaint.find({
             assignedStaff : req.user._id

@@ -1,0 +1,166 @@
+.dashboard-page {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px;
+}
+
+/* Header */
+
+.dashboard-header {
+    margin-bottom: 30px;
+}
+
+.dashboard-header h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.dashboard-header p {
+    color: #666;
+}
+
+/* Summary Cards */
+
+.summary-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.summary-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.summary-card h3 {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.summary-card p {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Complaint Section Header */
+
+.complaint-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.complaint-section strong {
+    font-size: 22px;
+}
+
+.view {
+    text-decoration: none;
+    color: white;
+}
+
+.view:hover {
+    color: #1d4ed8;
+}
+
+/* Complaint List */
+
+.complaint-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Complaint Card */
+
+.complaint-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 24px;
+}
+
+.complaint-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.complaint-card > p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+/* Complaint Information */
+
+.complaint-card > div {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.complaint-card span {
+    font-size: 14px;
+    color: #444;
+}
+
+/* Empty State */
+
+.empty-state {
+    text-align: center;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 50px 20px;
+}
+
+.empty-state h3 {
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: #666;
+}
+
+/* Loading */
+
+.loading {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Error */
+
+.error-message {
+    color: #dc2626;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .summary-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard-page {
+        padding: 20px;
+    }
+
+    .summary-section {
+        grid-template-columns: 1fr;
+    }
+
+    .complaint-card > div {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
