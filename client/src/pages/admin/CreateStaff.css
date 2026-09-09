@@ -1,4 +1,4 @@
-.create-complaint-page {
+.create-page {
     min-height: calc(100vh - 64px);
     padding: 40px 20px;
     display: flex;
@@ -6,7 +6,11 @@
     background-color: #f3f6fb;
 }
 
-.create-complaint-card {
+.create-header{
+    text-align: center;
+}
+
+.create-card {
     width: 600px;
     background-color: white;
     padding: 35px;
@@ -14,12 +18,12 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-.create-complaint-card h1 {
+.create-card h2 {
     margin-bottom: 8px;
     text-align: center;
 }
 
-.create-complaint-card > p {
+.create-card > p {
     color: #666;
     margin-bottom: 30px;
     text-align: center;
@@ -35,9 +39,7 @@
     font-weight: 600;
 }
 
-.form-group input,
-.form-group textarea,
-.form-group select {
+.form-group input {
     width: 100%;
     padding: 11px;
     border: 1px solid #d1d5db;
@@ -45,18 +47,12 @@
     outline: none;
 }
 
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
+.form-group input:focus {
     border-color: #2563eb;
 }
 
-.form-group textarea {
-    min-height: 120px;
-    resize: vertical;
-}
 
-.form-action {
+.form-actions {
     display: flex;
     justify-content: flex-end;
     gap: 12px;
@@ -98,5 +94,11 @@
 .error-message {
     color: #dc2626;
     margin-bottom: 20px;
+    text-align: center;
+}
+
+.success-message{
+    color: green;
+    margin-bottom: 10px;
     text-align: center;
 }

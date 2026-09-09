@@ -47,7 +47,7 @@ function StudentDashboard() {
                     <p>Welcome back, {user?.name || "student"}</p>
                     {error && (<p className="error-message">{error}</p>)}
                 </div>
-                <Link to="student/complaints/create" className="complaint-button">Submit Complaint</Link>
+                <Link to="/student/complaints/create" className="complaint-button">Submit Complaint</Link>
             </div>
 
             <div className="summary-section">

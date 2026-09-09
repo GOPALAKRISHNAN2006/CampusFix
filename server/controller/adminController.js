@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import User from "../models/User.js";
 
 
+
 export const getAllComplaints = async(req,res)=>{
     try{
         const complaints = await Complaint.find()
@@ -16,7 +17,7 @@ export const getAllComplaints = async(req,res)=>{
             complaints
         })
     }catch(error){
-        console.log("Get Al complaints error:",error);
+        console.log("Get All complaints error:",error);
         return res.status(500).json({
             success: false,
             message: "Server error while fetching complaints"
@@ -119,6 +120,26 @@ export const assignComplaint = async(req,res) =>{
         return res.status(500).json({
             success: false,
             message: "Server error while assigning complaint"
+        });
+    }
+}
+
+export const getComplaintById = async(req,res)=>{
+    try{
+        const {id} = req.params;
+        const complaint = await Complaint.findById(id)
+        .populate("student", "name email phone")
+        .populate("assignedStaff", "name email phone");
+
+        return res.status(200).json({
+            success: true,
+            complaint
+        })
+    }catch(error){
+        console.log("Get complaints error:",error);
+        return res.status(500).json({
+            success: false,
+            message: "Server error while fetching complaints"
         });
     }
 }

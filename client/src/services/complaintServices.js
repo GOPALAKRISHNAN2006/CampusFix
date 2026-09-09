@@ -5,7 +5,7 @@ export const getMyComplaint = async()=>{
 
     const token = localStorage.getItem("token");
     if(!token){
-        throw new Error("No Aythentication token Found");
+        throw new Error("No Authentication token Found");
     }
 
     
@@ -77,3 +77,18 @@ export const getAllComplaint = async()=>{
 
     return response.data;
 }
+
+export const getComplaintById = async(id)=>{
+    const token = localStorage.getItem("token");
+    if(!token){
+        throw new Error("No Authentication token found");
+    }
+
+    const response = await api.get(`/admin/complaints/${id}`,{
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    });
+    return response.data;
+}
+

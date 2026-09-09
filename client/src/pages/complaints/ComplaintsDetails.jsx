@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { closeComplaint,getMyComplaintById } from "../../services/complaintServices";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "./ComplaintsDetails.css"
+import "./Complaints.css"
 function ComplaintsDetails(){
     const {id} = useParams();
     const [error,setError] = useState("");

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getMyComplaint } from "../../services/complaintServices.js";
 import { Link } from "react-router-dom";
 
-import "./MyComplaints.css";
+import "./Complaints.css";
 function MyComplaints(){
 
     const [loading,setLoading] = useState(true);

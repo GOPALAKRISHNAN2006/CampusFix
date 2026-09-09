@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react";
 import { getAllComplaint } from "../../services/complaintServices";
 import { Link } from "react-router-dom";
-import "./AdminComplaints.css"
+import "./Admin.css"
 function AdminComplaints(){
 
     const [error,setError] = useState("");
@@ -57,7 +57,7 @@ function AdminComplaints(){
                             <span>Priority: {complaint.priority}</span>
                             <span>Status: {complaint.status}</span>
                         </div>
-                        <Link to={`/student/complaints/${complaint._id}`} className="view">
+                        <Link to={`/admin/complaints/${complaint._id}`} className="view">
                             View Details</Link>
                     </div>
                     

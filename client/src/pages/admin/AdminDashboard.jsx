@@ -1,8 +1,8 @@
-import { getAllComplaint } from "../../services/complaintServices";
+import { getAllComplaint } from "../../services/adminServices";
 import { useAuth } from "../../context/AuthContext";
 import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./AdminDashboard.css";
+import "./Admin.css";
 
 function AdminDashboard(){
 
@@ -73,8 +73,8 @@ function AdminDashboard(){
                     <p>{closedComplaints}</p>
                 </div>
                 <div className="admin-actions">
-                    <Link to="admin/complaints" className="admin-button">View All Complaints</Link>
-                    <Link to="admin/staff" className="admin-button">Create Staff</Link>
+                    <Link to="/admin/complaints" className="admin-button">View All Complaints</Link>
+                    <Link to="/admin/staff" className="admin-button">Create Staff</Link>
                 </div>
             </div>
         </div>

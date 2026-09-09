@@ -1,0 +1,152 @@
+.complaint-page {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px;
+}
+
+.complaint-header {
+    margin-bottom: 30px;
+}
+
+.complaint-header h3 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.complaint-header p {
+    color: #666;
+}
+
+.complaint-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.complaint-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 24px;
+}
+
+.complaint-content h2 {
+    margin-bottom: 10px;
+}
+
+.complaint-content p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.complaint-details {
+    display: flex;
+    gap: 30px;
+}
+
+.complaint-details span {
+    font-size: 14px;
+    color: #444;
+}
+
+.not-found {
+    text-align: center;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 50px 20px;
+}
+
+.not-found h2 {
+    margin-bottom: 10px;
+}
+
+.not-found p {
+    color: #666;
+}
+
+.view{
+    padding: 12px 20px;
+    background-color: #2563eb;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+}
+
+.view:hover{
+    background-color: #1d4ed8;
+}
+
+/* Admin Dashboard */
+
+.admin-dashboard {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px;
+}
+
+.admin-header {
+    margin-bottom: 30px;
+}
+
+.admin-header h2 {
+    margin-bottom: 30px;
+}
+
+.admin-header p {
+    color: #666;
+}
+
+.admin-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.admin-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.admin-card h3 {
+    margin-bottom: 15px;
+}
+
+.admin-card p {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.admin-button {
+    padding: 12px 20px;
+    background-color: #2563eb;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+}
+
+.admin-button:hover {
+    background-color: #1d4ed8;
+}
+
+
+/* Shared */
+
+.loading {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.error-message,
+.error-state {
+    color: #dc2626;
+    margin-bottom: 20px;
+}
