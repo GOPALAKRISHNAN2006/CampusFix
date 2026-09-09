@@ -24,7 +24,15 @@ function Login(){
         const {token,user} = response.data;
         localStorage.setItem("token" ,token);
         localStorage.setItem("user", JSON.stringify(user));
-        window.location.href = "/student/dashboard";
+        if(user.role === "student"){
+            window.location.href ="/student/dashboard";
+        }
+        if(user.role === "admin"){
+            window.location.href ="/admin/dashboard";
+        }
+        if(user.role === "staff"){
+            window.location.href ="/staff/dashboard";
+        }
       }
       catch(error){
         console.log(error);

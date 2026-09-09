@@ -143,3 +143,25 @@ export const getComplaintById = async(req,res)=>{
         });
     }
 }
+
+export const getStaff = async(req,res)=>{
+    try{
+        const staffs = await User.find({role:"staff"})
+        if(!staffs){
+            return res.status(404).json({
+                success: false,
+                message: "Staff Not Found"
+            })
+        }
+        return res.status(200).json({
+            success:true,
+            staffs
+        })
+    }catch(error){
+        console.log(error);
+        return res.status(500).json({
+            success: false,
+            message: "Failed to Get Staffs"
+        });
+    }
+}

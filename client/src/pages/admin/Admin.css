@@ -125,15 +125,17 @@
     margin-top: 30px;
 }
 
-.admin-button {
+.admin-button,.assign-button {
     padding: 12px 20px;
     background-color: #2563eb;
     text-decoration: none;
     color: white;
     border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
-.admin-button:hover {
+.admin-button:hover,.assign-button:hover {
     background-color: #1d4ed8;
 }
 
@@ -149,4 +151,15 @@
 .error-state {
     color: #dc2626;
     margin-bottom: 20px;
+}
+
+.details-card h2{
+    margin-top: 10px;
+}
+.assign-complaint h2{
+    margin-bottom: 10px;
+}
+
+.assign-staff p{
+    margin-top: 10px;
 }

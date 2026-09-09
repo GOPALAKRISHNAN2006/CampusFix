@@ -71,12 +71,13 @@ function ComplaintsDetails(){
         <div className="details-header">
             <div>
                 <h1>Complaints Details</h1>
-                <p>View th complete complaint information.</p>
+                <p>View the complete complaint information.</p>
             </div>
             <Link to="/student/complaints" className="back-btn">Back</Link>
         </div>
         <div className="details-card">
-            <h2>{complaint.title}</h2>
+            <strong>Title</strong>
+            <p>{complaint.title}</p>
             <div className="detail-item">
                 <strong>Description</strong>
                 <p>{complaint.description}</p>
