@@ -14,6 +14,8 @@ import AdminComplaints from "./pages/admin/AdminComplaints";
 import AdminComplaintsDetails from "./pages/admin/AdminComplaintsDetails";
 import CreateStaff from "./pages/admin/CreateStaff";
 import StaffDashboard from "./pages/staff/StaffDashboard";
+import StaffComplaints from "./pages/staff/StaffComplaints";
+import StaffComplaintsDetails from "./pages/StaffComplaintsDetails";
 function App() {
     return (
         <BrowserRouter>
@@ -82,6 +84,20 @@ function App() {
                     <ProtectedRoutes>
                         <RoleRoute allowedRole="staff">
                             <StaffDashboard/>
+                        </RoleRoute>
+                    </ProtectedRoutes>
+                }/>
+                <Route path="/staff/complaints" element={
+                    <ProtectedRoutes>
+                        <RoleRoute allowedRole="staff">
+                            <StaffComplaints/>
+                        </RoleRoute>
+                    </ProtectedRoutes>
+                }/>
+                <Route path="/staff/complaints/:id" element={
+                    <ProtectedRoutes>
+                        <RoleRoute allowedRole="staff">
+                            <StaffComplaintsDetails/>
                         </RoleRoute>
                     </ProtectedRoutes>
                 }/>

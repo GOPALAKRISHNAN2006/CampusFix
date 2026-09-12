@@ -22,6 +22,26 @@ export const getAssignedComplaints = async(req,res)=>{
         })
 
     }
+
+}
+export const getAssignedComplaintsById = async(req,res)=>{
+    try{
+        const {id} = req.params;
+        const complaint = await Complaint.findById(id)
+        .populate("student","name email phone")
+        .populate("assignedStaff","name email phone");
+
+        return res.status(200).json({
+            success:true,
+            complaint
+        })
+    }catch(error){
+        console.log("Erro while fetching assigned complaints", error);
+        res.status(500).json({
+            success: false,
+            message : "Server error while fetching complaints"
+        })
+    }
 }
 
 export const startWork = async (req, res) => {
