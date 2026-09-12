@@ -15,7 +15,7 @@ import AdminComplaintsDetails from "./pages/admin/AdminComplaintsDetails";
 import CreateStaff from "./pages/admin/CreateStaff";
 import StaffDashboard from "./pages/staff/StaffDashboard";
 import StaffComplaints from "./pages/staff/StaffComplaints";
-import StaffComplaintsDetails from "./pages/StaffComplaintsDetails";
+import StaffComplaintsDetails from "./pages/staff/StaffComplaintsDetails";
 function App() {
     return (
         <BrowserRouter>

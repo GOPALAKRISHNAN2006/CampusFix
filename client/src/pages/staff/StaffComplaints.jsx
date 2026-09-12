@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { getAssignedComplaints } from "../../services/staffServices";
 import { Link } from "react-router-dom";
+import "./StaffComplaints.css";
+
 function StaffComplaints(){
 
     const [error,setError] = useState("");
@@ -11,10 +13,10 @@ function StaffComplaints(){
         const fetchComplaints = async() =>{
             try{
                 const data = await getAssignedComplaints();
-                setComplaints(data.complaints);
+                setComplaints(data?.complaints || []);
             }catch(error){
                 console.log(error);
-                setError(error.response?.data?.message || "Failed to Load complaints");
+                setError(error.response?.data?.message || error.message || "Failed to Load complaints");
             }finally{
                 setLoading(false);
             }

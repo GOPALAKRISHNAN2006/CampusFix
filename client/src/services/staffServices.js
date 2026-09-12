@@ -14,6 +14,7 @@ export const getAssignedComplaints = async()=>{
 
     return response.data;
 }
+
 export const getComplaintsById = async(id)=>{
     const token = localStorage.getItem("token");
     if(!token){

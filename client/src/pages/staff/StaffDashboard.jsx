@@ -84,7 +84,7 @@ function StaffDashboard(){
                                 <span>Priority:{complaint.priority}</span>
                                 <span>Category:{complaint.category}</span>
                             </div>
-                            <Link to="/staff/complaints/:id" className="view">View Details</Link>
+                            <Link to={`/staff/complaints/${complaint._id}`} className="view">View Details</Link>
                         </div>
                         
                     ))}

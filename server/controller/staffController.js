@@ -31,15 +31,28 @@ export const getAssignedComplaintsById = async(req,res)=>{
         .populate("student","name email phone")
         .populate("assignedStaff","name email phone");
 
+        if(!complaint){
+            return res.status(404).json({
+                success: false,
+                message: "Complaint not found"
+            });
+        }
+
         return res.status(200).json({
             success:true,
             complaint
         })
     }catch(error){
-        console.log("Erro while fetching assigned complaints", error);
+        console.log("Error while fetching assigned complaint", error);
+        if(error.name === "CastError"){
+            return res.status(400).json({
+                success: false,
+                message: "Invalid Complaint ID"
+            });
+        }
         res.status(500).json({
             success: false,
-            message : "Server error while fetching complaints"
+            message : "Server error while fetching complaint"
         })
     }
 }

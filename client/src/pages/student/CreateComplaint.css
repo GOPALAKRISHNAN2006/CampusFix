@@ -1,0 +1,102 @@
+.create-complaint-page {
+    min-height: calc(100vh - 64px);
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #f3f6fb;
+}
+
+.create-complaint-card {
+    width: 600px;
+    background-color: white;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.create-complaint-card h1 {
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.create-complaint-card > p {
+    color: #666;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #2563eb;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-action {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.cancel,
+.submit {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.cancel {
+    background-color: #e5e7eb;
+    color: #333;
+}
+
+.cancel:hover {
+    background-color: #d1d5db;
+}
+
+.submit {
+    background-color: #2563eb;
+    color: white;
+}
+
+.submit:hover {
+    background-color: #1d4ed8;
+}
+
+.submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: #dc2626;
+    margin-bottom: 20px;
+    text-align: center;
+}

@@ -1,0 +1,68 @@
+.home{
+    min-height: calc(100vh - 64px);
+}
+
+.hero-section{
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #f3f6fb;
+}
+
+.hero-section h1{
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-section p{
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.hero-button{
+    padding: 12px 24px;
+    border-radius: 10px;
+    background-color: #2563eb;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.hero-button:hover{
+    background-color: #1d4ed8;
+}
+
+.how-its-works{
+    padding:60px 40px;
+    text-align: center;
+}
+
+.how-its-works h2{
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.steps{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.step{
+    width: 280px;
+    padding: 25px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.step h3{
+    margin-bottom: 12px;
+}
+
+.step p{
+    color: #666;
+    line-height: 1.5;
+}
