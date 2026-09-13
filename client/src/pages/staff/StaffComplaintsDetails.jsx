@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getComplaintsById } from "../../services/staffServices";
+import { getComplaintsById,startWorking,Resolve,Resolution } from "../../services/staffServices";
 import "./StaffComplaintsDetails.css";
 
 function StaffComplaintsDetails(){
@@ -8,6 +8,69 @@ function StaffComplaintsDetails(){
     const [error,setError] = useState("");
     const [complaint,setComplaint] = useState(null);
     const {id} = useParams();
+
+    const [startError, setStartError] = useState("");
+    const [startLoading, setStartLoading] = useState(false);
+    const [resolveError, setResolveError] = useState("");
+    const [resolveLoading, setResolveLoading] = useState(false);
+
+    const [resolution,setResolution] = useState("")
+    const [resolutionError, setResolutionError] = useState("");
+    const [resolutionLoading,setResolutionLoading] = useState(false);
+    const [resolutionSuccess,setResolutionSuccess] = useState(false);
+
+        const handleStartWork = async()=>{
+
+            setStartError("");
+            setStartLoading(true);
+            try{
+                await startWorking(id);
+                const response = await getComplaintsById(id);
+                setComplaint(response.complaint);
+            }catch(error){
+                console.log(error);
+                setStartError(error.response?.data?.message);
+            }finally{
+                setStartLoading(false);
+            }
+        }
+    
+    
+
+        const handleResolveWork = async()=>{
+
+            setResolveError("");
+            setResolveLoading(true);
+            try{
+                await Resolve(id);
+                const response = await getComplaintsById(id);
+                setComplaint(response.complaint);
+            }catch(error){
+                console.log(error);
+                setResolveError(error.response?.data?.message);
+            }finally{
+                setResolveLoading(false);
+            }
+        }
+
+        const handleResolution = async(e)=>{
+            e.preventDefault();
+            setResolutionError("");
+            setResolutionLoading(true);
+
+            try{
+                await Resolution(id,resolution);
+                const data = await getComplaintsById(id);
+                setComplaint(data.complaint);
+                setResolutionSuccess("Resolution Added Successfully!");
+                console.log(data);
+            }catch(error){
+                console.log(error);
+                setResolutionError(error.response?.data?.message);
+            }finally{
+                setResolutionLoading(false);
+            }
+        }
 
     useEffect(()=>{
         const fetchComplaint = async()=>{
@@ -97,6 +160,31 @@ function StaffComplaintsDetails(){
                     <strong>Resolution</strong>
                     <p>{complaint.resolution || "No Resolution Added yet"}</p>
                 </div>
+
+                {complaint.status === "assigned" && (
+                  <div className="start">
+                    {startError && <p className="error-message">{startError}</p>}
+                    <button className="start-button" onClick={handleStartWork} disabled={startLoading}>{startLoading ? "Start Working..." : "Start Work"}</button>
+                  </div>
+                )}
+                {complaint.status === "in-progress" && (
+                  <div className="resolve">
+                    {resolveError && <p className="error-message">{resolveError}</p>}
+                    <button className="resolve-button" onClick={handleResolveWork} disabled={resolveLoading}>{resolveLoading ? "Resolving..." : "Resolve"}</button>
+                  </div>
+                )}
+
+                <form onSubmit={handleResolution}>
+                    {resolutionError && <p className="error-message">{resolutionError}</p>}
+                    {complaint.status === "resolved" && (
+                        <div className="form-group">
+                            <label>Add Resolution</label>
+                            <textarea className="resolution" placeholder="Enter a Resolution..." value={resolution} onChange={(e)=>setResolution(e.target.value)}/>
+                            <button type="submit" className="start-button" disabled={resolutionLoading}>{resolutionLoading ? "Submitting...":"Submit"}</button>
+                            {resolutionSuccess && <p className="success-message">{resolutionSuccess}</p>}
+                        </div>
+                    )}
+                </form>
             </div>
         </div>
     );

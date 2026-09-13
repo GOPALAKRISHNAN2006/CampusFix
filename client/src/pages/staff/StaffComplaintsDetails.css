@@ -1,1 +1,17 @@
 @import "./StaffDashboard.css";
+.start-button,.resolve-button{
+    padding: 12px 24px;
+    border-radius: 10px;
+    background-color: #2563eb;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.start-button:hover,
+.resolve-button:hover{
+    background-color: #1d4ed8;
+}
+

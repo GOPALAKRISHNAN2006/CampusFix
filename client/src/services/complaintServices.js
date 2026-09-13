@@ -54,7 +54,7 @@ export const closeComplaint = async(id)=>{
     if(!token){
         throw new Error("No Authentication token found");
     }
-    const response = await api.patch(`/complaints/${id}/close`,{
+    const response = await api.patch(`/complaints/${id}/close`,{},{
         headers:{
             Authorization:`Bearer ${token}`
         }

@@ -142,6 +142,12 @@
     margin-top: 30px;
 }
 
+.success-message {
+    color: #53b819;
+    text-align: center;
+    margin-top: 30px;
+}
+
 /* Responsive */
 
 @media (max-width: 900px) {
@@ -164,3 +170,4 @@
         gap: 8px;
     }
 }
+
